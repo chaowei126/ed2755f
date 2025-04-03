@@ -10,7 +10,7 @@ import { connect } from 'cloudflare:sockets';
  * User configuration and settings
  * Generate UUID: [Windows] Press "Win + R", input cmd and run: Powershell -NoExit -Command "[guid]::NewGuid()"
  */
-let userID = '914637d4-9b7b-4892-8e18-aa3b8829774d';
+let userID = '914637d49b7b48928e18aa3b8829774d';
 
 /**
  * Array of broker server addresses with ports
