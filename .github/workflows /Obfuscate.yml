@@ -1,9 +1,10 @@
 name: Build Obfuscate worker js
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"    # 每30分钟检查一次
-  workflow_dispatch:           # 允许手动触发
+  push:
+    paths:
+      - 'origin.js'    # 当 origin.js 发生变化时触发
+  workflow_dispatch:    # 保留手动触发选项
 
 permissions:
   contents: write
@@ -24,10 +25,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g javascript-obfuscator
-
-      - name: Clone target js
-        run: |
-          wget -O origin.js https://raw.githubusercontent.com/目标用户名/目标仓库/main/origin.js
 
       - name: Obfuscate worker js
         run: |
