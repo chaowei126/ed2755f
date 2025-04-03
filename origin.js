@@ -1,4 +1,4 @@
-// Testt - A Cloudflare Worker-based VLESS Proxy with WebSocket Transport
+// Test - A Cloudflare Worker-based VLESS Proxy with WebSocket Transport
 // @ts-ignore
 import { connect } from 'cloudflare:sockets';
 
