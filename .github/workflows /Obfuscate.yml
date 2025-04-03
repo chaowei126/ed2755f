@@ -1,11 +1,11 @@
-name: Build Obfuscate worker
+name: Build Obfuscate worker js
 
 on:
   push:
     branches:
       - main
   schedule:
-        - cron: "0 2 * * *"
+        - cron: "0 1 * * *"
 
 permissions:
   contents: write
