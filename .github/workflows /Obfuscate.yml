@@ -1,11 +1,9 @@
 name: Build Obfuscate worker js
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'origin.js'
+  schedule:
+    - cron: "*/30 * * * *"    # 每30分钟检查一次
+  workflow_dispatch:           # 允许手动触发
 
 permissions:
   contents: write
@@ -26,6 +24,10 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g javascript-obfuscator
+
+      - name: Clone target js
+        run: |
+          wget -O origin.js https://raw.githubusercontent.com/目标用户名/目标仓库/main/origin.js
 
       - name: Obfuscate worker js
         run: |
@@ -49,5 +51,3 @@ jobs:
           branch: main
           commit_message: ':arrow_up: update obfuscated worker'
           commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
-          push_options: '--set-upstream'
-
