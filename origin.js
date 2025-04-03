@@ -86,8 +86,7 @@ export default {
 
 			const userIDs = userID.includes(',') ? userID.split(',').map(id => id.trim()) : [userID];
 			const url = new URL(request.url);
-			//const host = request.headers.get('Host');
-			const host = url.hostname;
+			const host = request.headers.get('X-Forwarded-Host') || request.headers.get('Host');
 			const requestedPath = url.pathname.substring(1); // Remove leading slash
 			const matchingUserID = userIDs.length === 1 ?
 				(requestedPath === userIDs[0] || 
